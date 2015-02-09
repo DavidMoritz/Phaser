@@ -1,0 +1,31 @@
+.... outside functions ....
+    
+    var platforms;
+    
+.... in create() ....
+    
+        //  We're going to be using physics, so enable the Arcade Physics system
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+        
+        //  The platforms group contains the ground and the 2 ledges we can jump on
+        platforms = game.add.group();
+    
+        //  We will enable physics for any object that is created in this group
+        platforms.enableBody = true;
+    
+        // Here we create the floor from 'ground'.
+        var floor = platforms.create(0, game.world.height - 64, 'ground');
+    
+        //  Scale floor fit the width of the game (the original sprite is 400x32 in size)
+        floor.scale.setTo(2, 2);
+    
+        //  This stops it from falling away when you jump on it
+        floor.body.immovable = true;
+    
+        //  Now let's create two ledges also from 'ground'
+        var ledge1 = platforms.create(400, 400, 'ground');
+        var ledge2 = platforms.create(-150, 250, 'ground');
+    
+        //  Make them immovable as well
+        ledge1.body.immovable = true;    
+        ledge2.body.immovable = true;

@@ -1,0 +1,40 @@
+.... outside functions ....
+
+    var stars;
+    
+.... in create() ....
+    
+        //  Finally some stars to collect
+        stars = game.add.group();
+    
+        //  We will enable physics for any star that is created in this group
+        stars.enableBody = true;
+    
+        //  Here we'll create 12 of them evenly spaced apart
+        for (var i = 0; i < 12; i++)
+        {
+            //  Create a star inside of the 'stars' group
+            var star = stars.create(i * 70, 0, 'star');
+    
+            //  Let gravity do its thing
+            star.body.gravity.y = 300;
+    
+            //  This just gives each star a slightly random bounce value
+            star.body.bounce.y = 0.7 + Math.random() * 0.2;
+        }
+    
+.... in update() ....
+           
+        //  stars group also collides with platforms
+        game.physics.arcade.collide(stars, platforms);
+    
+        //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
+        game.physics.arcade.overlap(player, stars, collectStar, null, this);
+    
+.... new function ....
+    function collectStar (player, star) {
+        
+        // Removes the star from the game
+        star.kill();
+    
+    }

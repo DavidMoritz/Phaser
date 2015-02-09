@@ -1,0 +1,9 @@
+.... in create() ....
+    
+        // A simple background for our game
+        game.add.sprite(0, 0, 'sky');
+        
+        // add some little stars (x, y, 'name')
+        game.add.sprite(100, 100, 'star');
+        game.add.sprite(300, 100, 'star');
+        game.add.sprite(140, 200, 'star');

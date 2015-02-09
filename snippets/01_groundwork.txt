@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Phaser Game</title>
+</head>
+<body>
+<script src="assets/phaser.min.js"></script>
+<script>
+
+    var game = new Phaser.Game(
+        800, // The width of our game
+        600, // The height of our game
+        Phaser.AUTO,  // The structure
+        '',  // The id of element to place game
+        { preload: preload, create: create, update: update }  // The game properties: methodName
+    );
+
+    function preload() {
+    }
+
+    function create() {
+    }
+
+    function update() {
+    }
+
+</script>
+</body>
+</html>
