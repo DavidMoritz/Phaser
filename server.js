@@ -9,6 +9,10 @@ http.createServer(function (req, res) {
 		var img = fs.readFileSync("." + action);
 		res.writeHead(200, {'Content-Type': "image/png"});
 		res.end(img, 'binary');
+	} else if( action.indexOf(".js") > 0) {
+		var js = fs.readFileSync("." + action);
+		res.writeHead(200, {'Content-Type': "text/javascript"});
+		res.end(js, 'binary');
 	} else {
 		res.writeHead(200, {'Content-Type': 'text/html'});
 		res.end(phaser);
