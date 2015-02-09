@@ -1,0 +1,61 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Phaser - Making your first game, part 1</title>
+	<script type="text/javascript" src="../js/phaser.min.js"></script>
+	<script type="text/javascript" src="../js/functions.js"></script>
+	<link rel="stylesheet" type="text/css" href="../js/styles.css">
+</head>
+<body>
+	<h2>GroundWork</h2>
+	<button onclick="showCode();"><strong>The Code</strong></button>
+<pre id="code" class="hide"><span class="bold">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Phaser Game&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/phaser/2.2.2/phaser.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+
+    var game = new Phaser.Game(
+        800, <span class="green">// The width of our game</span>
+        600, <span class="green">// The height of our game</span>
+        Phaser.AUTO,  <span class="green">// The structure</span>
+        '',  <span class="green">// The id of element to place game</span>
+        { preload: preload, create: create, update: update }  <span class="green">// The game properties: methodName</span>
+    );
+
+    function preload() {
+    }
+
+    function create() {
+    }
+
+    function update() {
+    }
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</span>
+
+<button onclick="hideCode();">Hide code</button></pre>
+<a href="../preloading"><button>Moving on</button></a>
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+}
+
+function create() {
+}
+
+function update() {
+}
+
+</script>
+
+</body>
+</html>

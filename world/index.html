@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Phaser - Making your first game, part 2</title>
+	<script type="text/javascript" src="../js/phaser.min.js"></script>
+	<script type="text/javascript" src="../js/functions.js"></script>
+	<link rel="stylesheet" type="text/css" href="../js/styles.css">
+</head>
+<body>
+	<h2>The World</h2>
+	<button onclick="showCode();"><strong>The Code</strong></button>
+<pre id="code" class="hide">
+&lt;body&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/phaser/2.2.2/phaser.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt; 
+
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+    
+    function preload() {
+    
+        game.load.image('sky', 'assets/sky.png');
+        game.load.image('ground', 'assets/platform.png');
+        game.load.image('star', 'assets/star.png');
+        game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+    
+    }
+    
+    <span class="bold">var platforms;</span>
+    
+    function create() {
+    <span class="bold">
+        <span class="green">//  We're going to be using physics, so enable the Arcade Physics system</span>
+        game.physics.startSystem(Phaser.Physics.ARCADE);
+    </span>
+        game.add.sprite(0, 0, 'sky');
+    <span class="bold">
+        <span class="green">//  The platforms group contains the ground and the 2 ledges we can jump on</span>
+        platforms = game.add.group();
+    
+        <span class="green">//  We will enable physics for any object that is created in this group</span>
+        platforms.enableBody = true;
+    
+        <span class="green">// Here we create the floor from 'ground'.</span>
+        var floor = platforms.create(0, game.world.height - 64, 'ground');
+    
+        <span class="green">//  Scale floor fit the width of the game (the original sprite is 400x32 in size)</span>
+        floor.scale.setTo(2, 2);
+    
+        <span class="green">//  This stops it from falling away when you jump on it</span>
+        floor.body.immovable = true;
+    
+        <span class="green">//  Now let's create two ledges also from 'ground'</span>
+        var ledge1 = platforms.create(400, 400, 'ground');
+        var ledge2 = platforms.create(-150, 250, 'ground');
+    
+        <span class="green">//  Make them immovable as well</span>
+        ledge1.body.immovable = true;    
+        ledge2.body.immovable = true;
+    </span>
+    }
+    
+    function update() {
+    }
+
+&lt;/script&gt;
+&lt;/body&gt;
+
+<button onclick="hideCode();">Hide code</button></pre>
+<a href="../gravity"><button>Moving on</button></a>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    game.load.image('sky', '../assets/sky.png');
+    game.load.image('ground', '../assets/platform.png');
+    game.load.image('star', '../assets/star.png');
+    game.load.spritesheet('dude', '../assets/dude.png', 32, 48);
+
+}
+
+var platforms;
+
+function create() {
+
+    //  We're going to be using physics, so enable the Arcade Physics system
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    game.add.sprite(0, 0, 'sky');
+
+    //  The platforms group contains the ground and the 2 ledges we can jump on
+    platforms = game.add.group();
+
+    //  We will enable physics for any object that is created in this group
+    platforms.enableBody = true;
+
+    // Here we create the ground.
+    var ground = platforms.create(0, game.world.height - 64, 'ground');
+
+    //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
+    ground.scale.setTo(2, 2);
+
+    //  This stops it from falling away when you jump on it
+    ground.body.immovable = true;
+
+    //  Now let's create two ledges
+    var ledge = platforms.create(400, 400, 'ground');
+
+    ledge.body.immovable = true;
+
+    ledge = platforms.create(-150, 250, 'ground');
+
+    ledge.body.immovable = true;
+    
+}
+
+function update() {
+}
+
+</script>
+
+</body>
+</html>

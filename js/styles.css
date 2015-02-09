@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 10px;
+}
+.hide {
+	display:none;
+}
+.bold {
+	font-weight: bold;
+	color: darkblue;
+}
+.green {
+	color: green;
+}
+body pre {
+	color: gray;
+}
